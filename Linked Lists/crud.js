@@ -118,6 +118,81 @@ class LinkedList {
 
         this.head = prev;
     }
+
+    hasCycle = function(head) {
+        // only valid if all elements are unique
+        // let set = new Set();
+
+        // let current = head;
+        // while(current) {
+        //     let value = current.value;
+        //     if (set.has(value)) {
+        //         return true;
+        //     }
+
+        //     set.add(value);
+        //     current = current.next;
+        // }
+
+        // return false;
+
+        if(!head || (head && !head.next)) return false;
+
+        // let fast = head.next;
+        // let slow = head;
+
+        // while ((slow !== fast) && (fast !== null && fast.next !== null) && (slow !== null && slow.next !== null)) {
+        //     fast = fast.next.next;
+        //     slow = slow.next;
+        // }
+
+        // if (slow === fast) return true;
+
+        // return false;
+
+        // Floyd's Logic
+        let fast = head;
+        let slow = head;
+
+        while(fast && fast.next) {
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if (fast == slow) return true;
+        }
+
+        return false;
+    }
+
+    middleNode = function(head) {
+        // let count = 0;
+        // let current = head;
+        // while(current) {
+        //     current = current.next;
+        //     count++;
+        // }
+
+        // let mid = Math.ceil((count+1)/2);
+
+        // current = head;
+        // while(mid > 1) {
+        //     current = current.next;
+        //     mid--;
+        // }
+
+        // return current;
+
+        let fast = head;
+        let slow = head;
+
+        let current = head;
+        while(fast !== null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        return slow;
+    };
 };
 
 const linkedList = new LinkedList();
