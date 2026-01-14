@@ -62,9 +62,10 @@ Sum all counts up to `n`.
 var countNumbersWithUniqueDigits = function(n) {
     if (n === 0) return 1;
 
+    
     let result = 10;        // starting with all 1 digit numbers
-    let unique = 9;         // current count
-    let available = 9;      // digits left to use
+    let unique = 9;         // current count as 0 excluded as unique is the number of valid ways to choose the first digit when building multi-digit numbers.
+    let available = 9;      // digits left to use excluding one that we added at first place from unique and including 0
 
     // the i here represent number of digits and we are counting how many unqiue are possible
     for (let i = 2; i <= n && available > 0; i++) {
@@ -75,3 +76,5 @@ var countNumbersWithUniqueDigits = function(n) {
 
     return result;
 };
+
+console.log(countNumbersWithUniqueDigits(3));
