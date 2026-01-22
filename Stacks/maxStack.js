@@ -71,3 +71,4 @@ console.log(maxStack.top());
 
 // Space Complexity: O(n) for both stacks
 
+// Why popMax is O(n)? popMax() cannot be O(1) because a stack only allows access from the top. If the maximum element is not on top, we must remove all elements above it, which takes linear time.
