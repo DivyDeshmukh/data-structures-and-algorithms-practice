@@ -19,7 +19,7 @@ var checkInclusion = function(s1, s2) {
     let left = 0;
 
     for (let right = 0; right < s2.length; right++) {
-        map2.set(s2[right], map2.get(s2[right] || 0) + 1);
+        map2.set(s2[right], (map2.get(s2[right]) || 0) + 1);
 
         if ((right-left) + 1 > windowSize) {
             map2.set(s2[left], map2.get(s2[left]) - 1);
@@ -40,6 +40,8 @@ var checkInclusion = function(s1, s2) {
                         break;
                     }
                 }
+            } else {
+                areMapsEqual = false;
             }
 
             if (areMapsEqual) return true;
