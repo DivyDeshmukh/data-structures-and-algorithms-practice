@@ -8,6 +8,7 @@ class Queue {
         this.items.push(value);
     }
 
+    // we are removing front element logically because otherwise it will cost us O(n) time complexity
     dequeue() {
         if (this.isEmpty()) return null;
 
