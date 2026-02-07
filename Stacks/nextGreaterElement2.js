@@ -3,7 +3,6 @@
  * @return {number[]}
  */
 var nextGreaterElements = function(nums) {
-    // Approach 1: Brute Force (Circular Array)
     // let n = nums.length;
     // let result = [];
 
@@ -25,9 +24,29 @@ var nextGreaterElements = function(nums) {
 
     // return result;
 
-    // Final Time Complexity: O(n²) as we have a nested loop
-    // Final Space Complexity: O(1) as we are using only constant space excluding the output array
+    // Approach 2:- Monotonic Stack
 
-    // Approach 2: Monotonic Stack (decreasing)
+    let n = nums.length;
+    let result = new Array(n).fill(-1);
+    let stack = [];
 
+    // traverse array twice
+    for (let i = 0; i < 2 * n; i++) {
+        let idx = i % n;
+
+        // resolve next greater for elements in stack
+        while (stack.length && nums[stack[stack.length - 1]] < nums[idx]) {
+            let topIndex = stack.pop();
+            result[topIndex] = nums[idx];
+        }
+
+        // only push indices during first pass
+        if (i < n) {
+            stack.push(idx);
+        }
+    }
+
+    return result;
+
+    // The stack stores unprocessed elements. The first pass resolves all elements  with a next greater element on the right, and the second pass only exists to resolve the remaining elements using circular traversal. We don’t push in the second pass because no new candidates exist.
 };
