@@ -109,10 +109,16 @@ class MaxHeap {
         return value;
     }
 
+    /*
+        Copy array.
+        Start from last parent.
+        Heapify down each node.
+        Move upward to root.
+    */
     // Build Heap O(n)
     buildHeap(arr) {
         this.heap = [...arr];
-
+        // Start from last non-leaf node and heapify down
         for (let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
             this.heapifyDown(i);
         }
@@ -138,6 +144,8 @@ h.print();
 
 h.remove(20);
 h.print();
+console.log(h.heap);
+
 
 /*
 Time Complexity (MaxHeap)
