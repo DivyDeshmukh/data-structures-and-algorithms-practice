@@ -28,6 +28,7 @@ class GraphMatrix {
     }
   }
 
+  // do these nodes have any connection?
   hasEdge(i, j) {
     return this.matrix[i][j] !== 0;
   }

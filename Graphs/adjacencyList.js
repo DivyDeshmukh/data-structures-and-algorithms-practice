@@ -60,7 +60,7 @@ directedGraph.addEdge('C', 'B', 2);
 console.log(directedGraph.adjList);
 
 const undirectedGraph = new Graph(false);
-undirectedGraph.addEdge('X', 'Y');
+undirectedGraph.addEdge('X', 'Y', 3);
 undirectedGraph.addEdge('Y', 'Z');
 console.log(undirectedGraph.adjList);
 
