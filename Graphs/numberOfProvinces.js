@@ -51,5 +51,8 @@ var findCircleNum = function(isConnected) {
 
 console.log(findCircleNum([[1, 1, 0], [1, 1, 0], [0, 0, 1]]));
 
-// Time Complexity: O(n^2) - We need to check each cell in the isConnected matrix once.
-// Space Complexity: O(n) - The visited array and the queue can grow up to size n in the worst case. The worst case occurs when all cities are connected, resulting in a single province. In this case, the queue will contain all n cities at once.
+// Time Complexity of DFS: O(n^2) - We need to check each cell in the isConnected matrix once.
+// Space Complexity of DFS: O(n) - In the worst case, when all cities are directly or indirectly connected, the recursive call stack can grow up to n in size. Here n is the number of cities.
+
+// Time Complexity of BFS: O(n^2) - We need to check each cell in the isConnected matrix once.
+// Space Complexity of BFS: O(n) - In the worst case, when all cities are directly or indirectly connected, the queue can grow up to n in size.
